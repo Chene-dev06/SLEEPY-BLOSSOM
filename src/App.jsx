@@ -28,8 +28,7 @@ export default function App(){
  useEffect(()=>{if(page==='letter'&&audioRef.current&&musicOn)audioRef.current.play().catch(()=>setMusicOn(false))},[page,musicOn]);
  const restart=()=>{audioRef.current?.pause();if(audioRef.current)audioRef.current.currentTime=0;setPage('welcome');setNoCount(0);setMood('neutral');setReaction('');setMusicOn(false);setLetterOpen(false)};
  return <main className="app-shell">
-  <audio ref={audioRef} src={`${import.meta.env.BASE_URL}music/calm-instrumental.wav`} loop preload="auto"/>
-  <FloatingDecor/><div className="top-note"><Flower2 size={15}/> A LITTLE SOMETHING FOR YOU <Heart size={13} fill="currentColor"/></div>
+<audio ref={audioRef} src={`${import.meta.env.BASE_URL}calm-instrumental.wav`} loop preload="auto"/>  <FloatingDecor/><div className="top-note"><Flower2 size={15}/> A LITTLE SOMETHING FOR YOU <Heart size={13} fill="currentColor"/></div>
   <AnimatePresence mode="wait">
    {page==='welcome'?<motion.section className="welcome-screen" key="welcome" initial={{opacity:0,y:18}} animate={{opacity:1,y:0}} exit={{opacity:0,scale:.96}} transition={{duration:.55}}>
     <div className="welcome-card"><div className="tiny-label"><Sparkles size={13}/> YOUR SPECIAL DAY IS CALLING <Sparkles size={13}/></div>
